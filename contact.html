@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Evan Saulnier</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">EVAN SAULNIER</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span style="color:var(--red-bright); font-size:1.5rem; line-height:1;">&#9776;</span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+          <li class="nav-item"><a class="nav-link" href="competences.html">Compétences</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Projets</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="projets/ateliers.html">Ateliers (AP)</a></li>
+              <li><a class="dropdown-item" href="projets/stages.html">Stages</a></li>
+              <li><a class="dropdown-item" href="projets/autres.html">Autres projets</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="veille.html">Veille</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-alt" style="padding:3rem 0; border-bottom:1px solid var(--grey-600);">
+    <div class="container">
+      <div class="sec-label">// Me contacter</div>
+      <h1 class="sec-title">Contact</h1>
+      <div class="sec-rule"><span></span><span></span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- INFOS -->
+        <div class="col-lg-4">
+          <div class="card-z mb-3">
+            <div class="card-z-title">&#128205; Localisation</div>
+            <p class="card-z-text">Nîmes, Gard (30) — France</p>
+          </div>
+          <div class="card-z mb-3">
+            <div class="card-z-title">&#9993; Email</div>
+            <p class="card-z-text"><a href="mailto:evan.saulnier@email.fr">evan.saulnier@email.fr</a></p>
+          </div>
+          <div class="card-z mb-3">
+            <div class="card-z-title">&#128222; Téléphone</div>
+            <p class="card-z-text">06 XX XX XX XX</p>
+          </div>
+          <div class="card-z">
+            <div class="card-z-title">&#128025; GitHub</div>
+            <p class="card-z-text"><a href="https://github.com/" target="_blank">github.com/evansaulnier</a></p>
+          </div>
+        </div>
+
+        <!-- FORMULAIRE -->
+        <div class="col-lg-8">
+          <div class="card-z" style="padding:2.5rem;">
+            <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1.5rem; text-transform:uppercase; margin-bottom:2rem; color:var(--white);">Formulaire de contact</h2>
+
+            <!-- Message succès -->
+            <div id="ok" style="display:none; background:rgba(200,26,26,0.12); border:1px solid var(--red); border-left:4px solid var(--red-bright); padding:0.9rem 1.2rem; margin-bottom:1.5rem; font-family:'Rajdhani',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--red-bright); font-size:0.95rem;">
+              &#10003; Message envoyé avec succès !
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label-z" for="genre">Genre</label>
+                <select class="form-field" id="genre">
+                  <option value="" disabled selected>Sélectionner</option>
+                  <option>M.</option>
+                  <option>Mme</option>
+                  <option>Autre / Ne pas préciser</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-z" for="nom">Nom</label>
+                <input type="text" class="form-field" id="nom" placeholder="Dupont"/>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-z" for="prenom">Prénom</label>
+                <input type="text" class="form-field" id="prenom" placeholder="Marie"/>
+              </div>
+              <div class="col-12">
+                <label class="form-label-z" for="email">Email</label>
+                <input type="email" class="form-field" id="email" placeholder="contact@example.fr"/>
+              </div>
+              <div class="col-12">
+                <label class="form-label-z" for="objet">Objet de la demande</label>
+                <select class="form-field" id="objet">
+                  <option value="" disabled selected>Sélectionner un objet</option>
+                  <option>Proposition de stage</option>
+                  <option>Offre d'emploi / alternance</option>
+                  <option>Collaboration sur un projet</option>
+                  <option>Demande d'information</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label-z" for="message">Message</label>
+                <textarea class="form-field" id="message" placeholder="Votre message..."></textarea>
+              </div>
+              <div class="col-12" style="display:flex; align-items:flex-start; gap:0.75rem;">
+                <input type="checkbox" id="rgpd" style="margin-top:0.3rem; accent-color:var(--red-bright); width:16px; height:16px; cursor:pointer; flex-shrink:0;"/>
+                <label for="rgpd" style="color:var(--grey-400); font-size:0.84rem; cursor:pointer; line-height:1.5;">J'accepte que mes données soient utilisées pour répondre à ma demande, conformément au <abbr title="Règlement Général sur la Protection des Données">RGPD</abbr>.</label>
+              </div>
+              <div class="col-12">
+                <button type="button" onclick="send()" class="btn-z btn-z-red">Envoyer le message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Evan <span>Saulnier</span></div>
+      <div class="footer-sub">BTS SIO &mdash; Option SLAM &nbsp;|&nbsp; Lycée CCI de Nîmes</div>
+      <div class="footer-links"><a href="cv.html">CV</a><a href="competences.html">Compétences</a><a href="projets/ateliers.html">Projets</a></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function send() {
+      const g = document.getElementById('genre').value;
+      const n = document.getElementById('nom').value.trim();
+      const p = document.getElementById('prenom').value.trim();
+      const e = document.getElementById('email').value.trim();
+      const o = document.getElementById('objet').value;
+      const m = document.getElementById('message').value.trim();
+      const r = document.getElementById('rgpd').checked;
+
+      if (!g || !n || !p || !e || !o || !m) { alert('Merci de remplir tous les champs.'); return; }
+      if (!e.includes('@') || !e.includes('.')) { alert('Adresse email invalide.'); return; }
+      if (!r) { alert('Vous devez accepter les conditions RGPD.'); return; }
+
+      document.getElementById('ok').style.display = 'block';
+      ['genre','nom','prenom','email','objet','message'].forEach(id => {
+        const el = document.getElementById(id);
+        el.tagName === 'SELECT' ? el.selectedIndex = 0 : el.value = '';
+      });
+      document.getElementById('rgpd').checked = false;
+      setTimeout(() => document.getElementById('ok').style.display = 'none', 5000);
+    }
+  </script>
+</body>
+</html>

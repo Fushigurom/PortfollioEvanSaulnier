@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compétences BTS SIO — Evan Saulnier</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">EVAN SAULNIER</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span style="color:var(--red-bright); font-size:1.5rem; line-height:1;">&#9776;</span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+          <li class="nav-item"><a class="nav-link active" href="competences.html">Compétences</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Projets</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="projets/ateliers.html">Ateliers (AP)</a></li>
+              <li><a class="dropdown-item" href="projets/stages.html">Stages</a></li>
+              <li><a class="dropdown-item" href="projets/autres.html">Autres projets</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="veille.html">Veille</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-alt" style="padding:3rem 0; border-bottom:1px solid var(--grey-600);">
+    <div class="container">
+      <div class="sec-label">// BTS SIO SLAM</div>
+      <h1 class="sec-title">Compétences</h1>
+      <div class="sec-rule"><span></span><span></span></div>
+      <p style="color:var(--grey-200); max-width:580px;">Référentiel de compétences du BTS SIO option SLAM, présenté en français et en anglais.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+
+      <!-- Toggle FR/EN -->
+      <div style="display:flex; margin-bottom:3rem; border:1px solid var(--grey-600); display:inline-flex; overflow:hidden;">
+        <button id="btnFr" onclick="lang('fr')" style="background:var(--red); color:var(--white); border:none; padding:0.6rem 1.8rem; font-family:'Rajdhani',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; cursor:pointer; font-size:0.9rem;">&#127467;&#127479; Français</button>
+        <button id="btnEn" onclick="lang('en')" style="background:transparent; color:var(--grey-400); border:none; padding:0.6rem 1.8rem; font-family:'Rajdhani',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; cursor:pointer; font-size:0.9rem;">&#127468;&#127463; English</button>
+      </div>
+
+      <div id="fr">
+        <div class="mb-5">
+          <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--red-bright); border-left:3px solid var(--red-bright); padding-left:0.9rem; margin-bottom:1.4rem;">Développement &amp; Programmation</h2>
+          <div class="table-responsive"><table class="comp-table">
+            <thead><tr><th>Compétence</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>Développement d'applications</td><td>Concevoir et développer des solutions applicatives web, mobile et bureautique</td></tr>
+              <tr><td>Langages de programmation</td><td>HTML/CSS, JavaScript, PHP, C#, SQL</td></tr>
+              <tr><td>Frameworks</td><td>Bootstrap, CodeIgniter, .NET</td></tr>
+              <tr><td>Bases de données</td><td>Conception, requêtage et administration (MySQL, SQL Server, SQLite, Supabase)</td></tr>
+              <tr><td>Architecture logicielle</td><td>Modèles MVC, conception orientée objet</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="mb-5">
+          <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--red-bright); border-left:3px solid var(--red-bright); padding-left:0.9rem; margin-bottom:1.4rem;">Réseaux &amp; Infrastructure</h2>
+          <div class="table-responsive"><table class="comp-table">
+            <thead><tr><th>Compétence</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>Protocoles réseau</td><td>TCP/IP, HTTP/HTTPS, FTP — configuration et dépannage</td></tr>
+              <tr><td>Administration système</td><td>Installation, configuration et sécurisation de serveurs</td></tr>
+              <tr><td>Virtualisation</td><td>Machines virtuelles et conteneurs (bases)</td></tr>
+              <tr><td>Sécurité réseau</td><td>Identification des vulnérabilités, mise en place de solutions de sécurité</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="mb-5">
+          <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--red-bright); border-left:3px solid var(--red-bright); padding-left:0.9rem; margin-bottom:1.4rem;">Cybersécurité</h2>
+          <div class="table-responsive"><table class="comp-table">
+            <thead><tr><th>Compétence</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>Protection des données</td><td>Mécanismes de sécurisation des données et authentification</td></tr>
+              <tr><td>Gestion des accès</td><td>Authentification, autorisation, gestion des droits utilisateurs (JWT, BCrypt)</td></tr>
+              <tr><td>RGPD</td><td>Application des règles de protection des données personnelles</td></tr>
+              <tr><td>Tests de sécurité</td><td>Identification et correction des failles applicatives (OWASP Top 10)</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+
+      <div id="en" style="display:none;">
+        <div class="mb-5">
+          <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--red-bright); border-left:3px solid var(--red-bright); padding-left:0.9rem; margin-bottom:1.4rem;">Development &amp; Programming</h2>
+          <div class="table-responsive"><table class="comp-table">
+            <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>Application Development</td><td>Design and build web, mobile and desktop software solutions</td></tr>
+              <tr><td>Programming Languages</td><td>HTML/CSS, JavaScript, PHP, C#, SQL</td></tr>
+              <tr><td>Frameworks</td><td>Bootstrap, Laravel, .NET — MVC architecture</td></tr>
+              <tr><td>Databases</td><td>Design, querying and administration (MySQL, SQL Server, SQLite)</td></tr>
+              <tr><td>Software Architecture</td><td>MVC patterns, object-oriented design, UML diagrams</td></tr>
+              <tr><td>Version Control</td><td>Git and GitHub for source code management and collaboration</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="mb-5">
+          <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--red-bright); border-left:3px solid var(--red-bright); padding-left:0.9rem; margin-bottom:1.4rem;">Networks &amp; Infrastructure</h2>
+          <div class="table-responsive"><table class="comp-table">
+            <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>Network Protocols</td><td>TCP/IP, HTTP/HTTPS, FTP — configuration and troubleshooting</td></tr>
+              <tr><td>System Administration</td><td>Server installation, configuration and hardening</td></tr>
+              <tr><td>Virtualization</td><td>Virtual machines and containers (fundamentals)</td></tr>
+              <tr><td>Network Security</td><td>Identifying vulnerabilities and implementing security measures</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="mb-5">
+          <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--red-bright); border-left:3px solid var(--red-bright); padding-left:0.9rem; margin-bottom:1.4rem;">Cybersecurity</h2>
+          <div class="table-responsive"><table class="comp-table">
+            <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>Data Protection</td><td>Implementing data security mechanisms and authentication</td></tr>
+              <tr><td>Access Management</td><td>Authentication, authorization, user rights management (JWT, BCrypt)</td></tr>
+              <tr><td>GDPR Compliance</td><td>Applying personal data protection rules and regulations</td></tr>
+              <tr><td>Security Testing</td><td>Identifying and fixing application vulnerabilities (OWASP Top 10)</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Evan <span>Saulnier</span></div>
+      <div class="footer-sub">BTS SIO &mdash; Option SLAM &nbsp;|&nbsp; Lycée CCI de Nîmes</div>
+      <div class="footer-links">
+        <a href="cv.html">CV</a><a href="projets/ateliers.html">Projets</a><a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function lang(l) {
+      document.getElementById('fr').style.display = l==='fr'?'block':'none';
+      document.getElementById('en').style.display = l==='en'?'block':'none';
+      document.getElementById('btnFr').style.background = l==='fr'?'var(--red)':'transparent';
+      document.getElementById('btnFr').style.color = l==='fr'?'var(--white)':'var(--grey-400)';
+      document.getElementById('btnEn').style.background = l==='en'?'var(--red)':'transparent';
+      document.getElementById('btnEn').style.color = l==='en'?'var(--white)':'var(--grey-400)';
+    }
+  </script>
+</body>
+</html>
