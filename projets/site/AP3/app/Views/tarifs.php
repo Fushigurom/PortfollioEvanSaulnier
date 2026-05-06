@@ -1,0 +1,192 @@
+<?php
+?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Tarifs - Hyrst</title>
+    <!-- Lien vers Bootstrap 5 pour la mise en forme -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css"> <!-- Lien vers votre CSS personnalisé -->
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home">Hyrst</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+            <?php if(session()->get('LoginId')): ?>
+                <li class="nav-item"><a class="nav-link" href="home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calendrier">Calendrier</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="tarifs">Tarifs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+                    <?php if(session()->get('Role') === 1): ?>
+                        <li class="nav-item"><a class="nav-link" href="Adherents">Liste Adhérents</a></li>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <li class="nav-item"><a class="nav-link" href="home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calendrier">Calendrier</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="tarifs">Tarifs</a></li>
+                <?php endif; ?>
+            </ul>
+            <?php if(session()->get('LoginId')): ?>
+                <a href="Profil" class="btn btn-outline-light me-2">Profil</a>
+            <?php else: ?>
+            <div class="d-flex">
+                <a href="ConnexionInscription" class="btn btn-outline-light me-2">Connexion/Inscription</a>
+            </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Calculateur de Tarifs</h1>
+
+    <form id="tariff-calculator">
+        <div class="row">
+            <!-- Champ pour entrer le nombre de mois -->
+            <div class="col-md-4 mb-3">
+                <label for="adults" class="form-label">Rentrez le nombre de mois de souscription</label>
+                <input type="number" class="form-control" id="adults" value="1" min="1" required>
+            </div>
+        </div>
+        <button id="calculerBtn" type="submit" class="btn btn-primary">Calculer</button>
+    </form>
+
+    <!-- Zone pour afficher le résultat -->
+    <div id="resultBox" class="result-box mt-4 d-none text-center">
+        <span id="resultText" class="result-text"></span>
+    </div>
+
+    <!-- Section explicative -->
+    <div class="mt-4">
+        <h2>Comment est calculée la réduction ?</h2>
+        <p>
+            Le tarif de base pour un mois est fixé à <strong>10 €</strong>. Une réduction est appliquée en fonction de la durée de votre souscription :
+        </p>
+        <ul>
+            <li>Pour une souscription de moins de 3 mois : <strong>Pas de réduction</strong>.</li>
+            <li>Entre 3 et 5 mois inclus : <strong>5 % de réduction</strong>.</li>
+            <li>Entre 6 et 11 mois inclus : <strong>10 % de réduction</strong>.</li>
+            <li>Entre 12 et 23 mois inclus : <strong>15 % de réduction</strong>.</li>
+            <li>24 mois ou plus : <strong>20 % de réduction</strong>.</li>
+        </ul>
+        <p>
+            Le calcul final tient compte de ces pourcentages pour ajuster le montant total.
+        </p>
+    </div>
+
+    <!-- Formulaire de paiement -->
+    <div id="paymentForm" class="mt-4 d-none">
+        <h2 class="text-center">Entrez vos informations de paiement</h2>
+        <form id="paymentDetails">
+            <div class="mb-3">
+                <label for="cardNumber" class="form-label">Numéro de carte</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="1234567890123456" minlength="16" maxlength="16" required>
+            </div>
+            <div class="mb-3">
+                <label for="expiryDate" class="form-label">Date d'expiration (MM/AAAA)</label>
+                <input type="month" class="form-control" id="expiryDate" maxlength="4" minlength="4" required>
+            </div>            
+            <div class="mb-3">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cvv" placeholder="123" minlength="3" maxlength="3" required>
+            </div>
+            <button onclick="fetchLatestVideo" type="submit" class="btn btn-success">Payer</button>
+            <br>
+            <br>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('tariff-calculator').addEventListener('submit', function (event) {
+        event.preventDefault(); // Empêche l'envoi du formulaire
+
+        // Récupère la valeur entrée dans le champ "adults" (nombre de mois)
+        const NombreMois = parseInt(document.getElementById('adults').value);
+
+        // Vérifie si la valeur entrée est valide
+        if (isNaN(NombreMois) || NombreMois <= 0) {
+            alert("Veuillez entrer un nombre valide de mois.");
+            return;
+        }
+
+        // Prix initial
+        let Prix = 10;
+        let result;
+
+        if (NombreMois < 3) {
+            result = NombreMois * Prix;
+        } else if (NombreMois <= 5) {
+            result = NombreMois * Prix * 0.95;
+        } else if (NombreMois <= 11) {
+            result = NombreMois * Prix * 0.90;
+        } else if (NombreMois <= 23) {
+            result = NombreMois * Prix * 0.85;
+        } else {
+            result = NombreMois * Prix * 0.80;
+        }
+
+        // Affiche le résultat dans la zone dédiée
+        const resultBox = document.getElementById('resultBox');
+        const resultText = document.getElementById('resultText');
+
+        resultText.textContent = `Le prix total est : ${result.toFixed(2)} €`;
+        resultBox.classList.remove('d-none'); // Rendre le résultat visible
+
+        // Affiche le formulaire de paiement
+        const paymentForm = document.getElementById('paymentForm');
+        paymentForm.classList.remove('d-none');
+    });
+
+    document.getElementById('paymentDetails').addEventListener('submit', function (event) {
+    event.preventDefault(); // Empêche l'envoi du formulaire
+
+    // Récupération des champs
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expiryDate = document.getElementById('expiryDate').value; // Récupère la valeur au format "YYYY-MM"
+    const cvv = document.getElementById('cvv').value;
+
+    // Validation du numéro de carte : 16 chiffres
+    if (!/^\d{16}$/.test(cardNumber)) {
+        alert("Le numéro de carte doit contenir exactement 16 chiffres.");
+        return;
+    }
+
+    // Validation de la date d'expiration : Doit être au format YYYY-MM et une année future
+    const today = new Date();
+    const [year, month] = expiryDate.split('-').map(Number);
+    if (!year || !month || year < today.getFullYear() || (year === today.getFullYear() && month < today.getMonth() + 1)) {
+        alert("La date d'expiration doit être valide et dans le futur.");
+        return;
+    }
+
+    // Validation du CVV : 3 chiffres
+    if (!/^\d{3}$/.test(cvv)) {
+        alert("Le CVV doit contenir exactement 3 chiffres.");
+        return;
+    }
+
+    // Si toutes les validations passent, effectuer le traitement
+    alert("Paiement réussi !");
+    window.location.href = "video.html"; // Redirection vers la page de confirmation
+});
+
+</script>
+
+<!-- Script JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../javascript/script.js"></script>
+
+</body>
+</html>

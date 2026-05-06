@@ -45,26 +45,31 @@
       <div class="ap-head">
         <div class="ap-num" style="font-size:1.8rem; min-width:90px; padding:0.3em 0.6em;">PERSO</div>
         <div class="ap-info">
-          <h2>[Nom du projet personnel]</h2>
-          <p>[Technologies utilisées]</p>
+          <h2>EasyWork Planning — Widget Android</h2>
+          <p>Java &bull; Android &bull; OkHttp &bull; JWT &bull; WebView &bull; AppWidget</p>
         </div>
       </div>
       <div class="table-responsive">
         <table class="fiche-table">
           <tbody>
-            <tr><th>Titre</th><td>[À compléter — ex : Application de gestion de planning]</td></tr>
-            <tr><th>Descriptif</th><td>[Décrivez le projet : problème résolu, conception, développement. À remplir avec vos projets réels.]</td></tr>
-            <tr><th>Période</th><td>[MM/AAAA] — [MM/AAAA]</td></tr>
-            <tr><th>Outils</th><td>[Technologies et outils utilisés]</td></tr>
+            <tr><th>Titre</th><td>EasyWork Planning — Widget Android</td></tr>
+            <tr>
+              <th>Descriptif</th>
+              <td>
+                Application Android native développée en Java permettant de consulter son planning de travail Easy@Work directement depuis l'écran d'accueil du téléphone sous forme de widget.<br><br>
+                Le projet repose sur une <strong>WebView intégrée</strong> pour la connexion à Easy@Work, qui intercepte automatiquement le token JWT émis lors de l'authentification. Ce token est ensuite utilisé pour effectuer des appels à l'<strong>API REST Easy@Work</strong> via OkHttp afin de récupérer les shifts à venir.<br><br>
+                Un <strong>widget écran d'accueil</strong> (AppWidgetProvider + RemoteViews) affiche en temps réel le prochain shift (jour, date, horaires), le délai avant celui-ci (Aujourd'hui / Demain / Dans X jours), ainsi que le shift suivant en format compact. Le design adopte un style <strong>Glassmorphism</strong> avec fond semi-transparent. Le widget se rafraîchit automatiquement toutes les 30 minutes et gère la reconnexion si le token expire.
+              </td>
+            </tr>
+            <tr><th>Outils</th><td>Java, Android SDK (API 28+), OkHttp 4.12.0, org.json, JWT Bearer Token, SharedPreferences, AppWidgetProvider, RemoteViews, Android Studio</td></tr>
             <tr><th>Lieu</th><td>Personnel</td></tr>
             <tr><th>Cadre</th><td>Projet personnel</td></tr>
             <tr><th>Mode</th><td>Individuel</td></tr>
-            <tr><th>Productions</th><td><a href="#">&#8594; GitHub / démo (à compléter)</a></td></tr>
-            <tr><th>Activités BTS SIO</th><td>[Si applicable, référencer les activités correspondantes]</td></tr>
-          </tbody>
+            <tr><th>Productions</th><td><a href="https://github.com/Fushigurom/EasyWorkPlanning" target="_blank">&#8594; GitHub — Fushigurom/EasyWorkPlanning</a></td></tr>
+            <tr><th>Images</th><td><img src="../{css,js,images,projets}/screen1perso.jpg" alt="Capture Perso 1" style="max-width:100%; height:auto; display:block; border:1px solid #444; background:#111; padding:0.25rem; margin-bottom:0.5rem;"><img src="../{css,js,images,projets}/screen2perso.jpg" alt="Capture Perso 2" style="max-width:100%; height:auto; display:block; border:1px solid #444; background:#111; padding:0.25rem;"></td></tr>
+            </tbody>
         </table>
       </div>
-      <p style="color:var(--grey-400); font-size:0.88rem; margin-top:1rem; font-style:italic;">Cette section est à compléter avec vos projets personnels, contributions open-source, scripts et outils développés en autonomie.</p>
     </div>
   </section>
   <footer>
